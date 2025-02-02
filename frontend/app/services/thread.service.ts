@@ -12,7 +12,6 @@ export class ThreadService {
     `${window.location.protocol}//${window.location.host}/api/threads` : 
     'http://localhost:3000/api/threads';
   
-  // Use signals for reactive state management
   currentThread = signal<Thread | null>(null);
 
   constructor(private http: HttpClient) {}
@@ -43,7 +42,6 @@ export class ThreadService {
       const response = await firstValueFrom(
         this.http.post<Response>(`${this.API_URL}/${threadId}/responses`, { answer })
       );
-      // Fetch the updated thread to get the latest state
       await this.getThread(threadId);
       return response;
     } catch (error) {
