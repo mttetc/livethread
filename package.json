@@ -1,0 +1,54 @@
+{
+  "name": "livethread-monorepo",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "api"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run api:dev\" \"npm run frontend:dev\"",
+    "build": "npm run api:build && npm run frontend:build",
+    "start": "npm run dev",
+    "api:dev": "cd api && nest start --watch --exec \"ts-node -r tsconfig-paths/register src/main.ts\"",
+    "api:build": "cd api && nest build",
+    "frontend:dev": "ng serve --proxy-config frontend/proxy.conf.json",
+    "frontend:build": "ng build --configuration production"
+  },
+  "dependencies": {
+    "@angular/animations": "^19.1.4",
+    "@angular/common": "^19.1.4",
+    "@angular/compiler": "^19.1.4",
+    "@angular/core": "^19.1.4",
+    "@angular/forms": "^19.1.4",
+    "@angular/platform-browser": "^19.1.4",
+    "@angular/platform-browser-dynamic": "^19.1.4",
+    "@angular/router": "^19.1.4",
+    "@nestjs/common": "^11.0.7",
+    "@nestjs/core": "^11.0.7",
+    "@nestjs/platform-express": "^11.0.7",
+    "@primeng/themes": "^19.0.5",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.1",
+    "concurrently": "^9.1.2",
+    "primeflex": "^3.3.1",
+    "primeicons": "^7.0.0",
+    "primeng": "^19.0.5",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.1",
+    "tslib": "^2.8.1",
+    "zone.js": "^0.15.0"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^19.1.5",
+    "@angular/cli": "^19.1.5",
+    "@angular/compiler-cli": "^19.1.4",
+    "@nestjs/cli": "^11.0.2",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.13.0",
+    "source-map-support": "^0.5.21",
+    "ts-loader": "^9.5.2",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "~5.5.0"
+  }
+}
