@@ -3,9 +3,16 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { provideRouter } from '@angular/router';
 import { providePrimeNG } from 'primeng/config';
 import { Routes } from '@angular/router';
-
-export const routes: Routes = [];
 import Aura from '@primeng/themes/aura';
+import { CreatePageComponent } from './pages/create/create.component';
+import { ThreadPageComponent } from './pages/thread/thread.component';
+import { LandingComponent } from './pages/landing/landing.component';
+
+export const routes: Routes = [
+  { path: '', component: LandingComponent },
+  { path: 'create', component: CreatePageComponent },
+  { path: 'thread/:id', component: ThreadPageComponent }
+];
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -13,9 +20,15 @@ export const appConfig: ApplicationConfig = {
     provideAnimationsAsync(),
     provideRouter(routes),
     providePrimeNG({
-        theme: {
-            preset: Aura
-        }
+      theme: {
+        preset: Aura,
+        options: {
+          cssLayer: {
+            name: 'primeng',
+            order: 'tailwind, primeng',
+          },
+        },
+      },
     })
   ]
 };

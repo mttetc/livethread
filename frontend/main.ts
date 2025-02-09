@@ -1,32 +1,35 @@
 import { Component } from '@angular/core';
 import { bootstrapApplication } from '@angular/platform-browser';
-import { provideRouter, RouterOutlet } from '@angular/router';
-import { provideAnimations } from '@angular/platform-browser/animations';
+import { RouterOutlet } from '@angular/router';
 import { provideHttpClient } from '@angular/common/http';
-import { CreatePageComponent } from './app/pages/create/create.component';
-import { ThreadPageComponent } from './app/pages/thread/thread.component';
-import { LandingComponent } from './app/pages/landing/landing.component';
+import { appConfig } from './app/app.config';
+import { HeaderComponent } from './app/components/header/header.component';
+import { FooterComponent } from './app/components/footer/footer.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, HeaderComponent, FooterComponent],
   template: `
-    <router-outlet></router-outlet>
+    <div class="flex flex-column min-h-screen surface-ground">
+      <app-header></app-header>
+      <main class="flex-grow-1 container py-8">
+        <router-outlet></router-outlet>
+      </main>
+      <app-footer></app-footer>
+    </div>
   `
 })
 export class App {
   name = 'LiveThread';
 }
 
-bootstrapApplication(App, {
+const config = {
+  ...appConfig,
   providers: [
-    provideRouter([
-      { path: '', component: LandingComponent },
-      { path: 'create', component: CreatePageComponent },
-      { path: 'thread/:id', component: ThreadPageComponent }
-    ]),
-    provideAnimations(),
+    ...appConfig.providers,
     provideHttpClient()
   ]
-});
+};
+
+bootstrapApplication(App, config);

@@ -22,13 +22,17 @@ import { animate, style, transition, trigger } from '@angular/animations';
         <form [formGroup]="form" (ngSubmit)="onSubmit()" class="flex flex-column gap-4">
           <div class="p-field w-full">
             <span class="p-float-label p-input-filled w-full">
-              <input 
-                id="question" 
-                type="text" 
-                pInputText 
-                formControlName="question"
-                class="w-full"
-              >
+              <span class="p-input-icon-left w-full">
+                <i class="pi pi-question-circle"></i>
+                <input 
+                  id="question" 
+                  type="text" 
+                  pInputText 
+                  formControlName="question"
+                  class="w-full"
+                  [style]="{'background': 'rgba(255, 255, 255, 0.05)', 'border': '1px solid rgba(255, 255, 255, 0.1)', 'color': 'var(--text-color)'}"
+                >
+              </span>
               <label for="question">Enter your question</label>
             </span>
             @if (form.get('question')?.errors?.['required'] && form.get('question')?.touched) {

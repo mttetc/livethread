@@ -1,0 +1,17 @@
+@import "primeng/resources/themes/lara-dark-blue/theme.css";
+@import "primeng/resources/primeng.css";
+@import "primeicons/primeicons.css";
+@import "primeflex/primeflex.css";
+
+/* Your customizations here */
+:root {
+  --primary-color: #7b3fe4;
+  --primary-gradient: linear-gradient(135deg, #7b3fe4 0%, #3735bb 100%);
+  --card-bg: rgba(255, 255, 255, 0.03);
+  --border-color: rgba(255, 255, 255, 0.1);
+  --text-color: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.7);
+}
+
+/* Import your global styles */
+@import "./global_styles.css";
