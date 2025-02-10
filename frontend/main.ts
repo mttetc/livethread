@@ -11,9 +11,9 @@ import { FooterComponent } from './app/components/footer/footer.component';
   standalone: true,
   imports: [RouterOutlet, HeaderComponent, FooterComponent],
   template: `
-    <div class="flex flex-column min-h-screen surface-ground">
+    <div class="flex flex-col min-h-screen surface-ground">
       <app-header></app-header>
-      <main class="flex-grow-1 container py-8">
+      <main class="flex-grow-1">
         <router-outlet></router-outlet>
       </main>
       <app-footer></app-footer>

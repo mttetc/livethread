@@ -33,42 +33,33 @@ import { Router } from '@angular/router';
     }
   `],
   template: `
-    <div class="hero-gradient py-8 px-4 min-h-screen flex flex-column justify-content-center align-items-center text-center">
-      <h1 class="text-6xl font-bold mb-4 gradient-text">Start a LiveThread</h1>
-      <p class="text-xl text-secondary mb-6 max-w-30rem line-height-3">
+    <div class="hero-gradient py-8 px-4 min-h-screen flex flex-col justify-center items-center text-center">
+      <h1 class="text-7xl font-extrabold mb-4 gradient-text tracking-tight">Start a LiveThread</h1>
+      <p class="text-2xl text-secondary mb-8 max-w-3xl line-height-3 font-light">
         Create engaging discussion threads in seconds. Connect with your audience in real-time.
       </p>
       <p-button 
         label="Get Started" 
         icon="pi pi-plus" 
         (onClick)="createThread()"
-        styleClass="cta-button text-xl px-5 py-3"
+        styleClass="cta-button text-xl px-6 py-3 font-medium"
       ></p-button>
 
-      <div class="grid mt-8 gap-4">
-        <div class="col-12 md:col-4">
+      <div class="flex justify-center gap-6 mt-12 w-full max-w-6xl">
+        <div class="flex-1">
           <p-card styleClass="feature-card h-full" [style]="{'background': 'rgba(255, 255, 255, 0.03)', 'backdrop-filter': 'blur(10px)'}">
-            <i class="pi pi-bolt text-4xl mb-3 gradient-text"></i>
-            <h3 class="text-xl font-medium mb-2">Lightning Fast</h3>
-            <p class="text-secondary m-0">Create and launch threads instantly</p>
+            <i class="pi pi-bolt text-5xl mb-4 gradient-text"></i>
+            <h3 class="text-2xl font-semibold mb-3">Lightning Fast</h3>
+            <p class="text-secondary text-lg m-0 font-light">Create and launch threads instantly</p>
           </p-card>
         </div>
-        <div class="col-12 md:col-4">
+        <div class="flex-1">
           <p-card styleClass="feature-card h-full" [style]="{'background': 'rgba(255, 255, 255, 0.03)', 'backdrop-filter': 'blur(10px)'}">
-            <i class="pi pi-chart-line text-4xl mb-3 gradient-text"></i>
-            <h3 class="text-xl font-medium mb-2">Analytics</h3>
-            <p class="text-secondary m-0">Monitor discussions and engagement</p>
+            <i class="pi pi-chart-line text-5xl mb-4 gradient-text"></i>
+            <h3 class="text-2xl font-semibold mb-3">Analytics</h3>
+            <p class="text-secondary text-lg m-0 font-light">Monitor discussions and engagement</p>
           </p-card>
         </div>
-      </div>
-
-      <div class="mt-6">
-        <p-button 
-          label="Start New Thread" 
-          icon="pi pi-arrow-right" 
-          (onClick)="createThread()"
-          styleClass="cta-button text-xl px-5 py-3"
-        ></p-button>
       </div>
 
     </div>

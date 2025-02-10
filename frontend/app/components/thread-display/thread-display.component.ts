@@ -38,7 +38,7 @@ import { ResponsesListComponent } from '../responses-list/responses-list.compone
             <h2 class="text-2xl font-bold text-center p-4 m-0">{{ thread()?.question }}</h2>
           </ng-template>
           
-          <form [formGroup]="form" (ngSubmit)="onSubmit()" class="flex flex-column gap-4">
+          <form [formGroup]="form" (ngSubmit)="onSubmit()" class="flex flex-col gap-4">
             <div class="p-field w-full">
               <span class="p-float-label p-input-filled w-full">
                 <input 

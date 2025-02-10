@@ -6,20 +6,19 @@ import { ThreadService } from '../../services/thread.service';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
-import { animate, style, transition, trigger } from '@angular/animations';
 
 @Component({
   selector: 'app-thread-creator',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, InputTextModule, ButtonModule, CardModule],
   template: `
-    <div class="p-container" [@fadeIn]>
+    <div class="p-container">
       <p-card>
         <ng-template pTemplate="header">
-          <h1 class="text-3xl font-bold text-center p-4 m-0">Create LiveThread</h1>
+          <h2 class="text-2xl font-semibold text-center p-4 m-0">Start Your Discussion</h2>
         </ng-template>
 
-        <form [formGroup]="form" (ngSubmit)="onSubmit()" class="flex flex-column gap-4">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()" class="flex flex-col gap-4">
           <div class="p-field w-full">
             <span class="p-float-label p-input-filled w-full">
               <span class="p-input-icon-left w-full">
@@ -48,6 +47,7 @@ import { animate, style, transition, trigger } from '@angular/animations';
             [disabled]="!form.valid"
             label="Create Thread"
             icon="pi pi-plus"
+            styleClass="w-full"
           ></p-button>
         </form>
       </p-card>
@@ -83,15 +83,7 @@ import { animate, style, transition, trigger } from '@angular/animations';
       transform: translateY(-2px);
       box-shadow: 0 12px 40px rgba(123, 63, 228, 0.4);
     }
-  `],
-  animations: [
-    trigger('fadeIn', [
-      transition(':enter', [
-        style({ opacity: 0, transform: 'translateY(20px)' }),
-        animate('300ms ease-out', style({ opacity: 1, transform: 'translateY(0)' }))
-      ])
-    ])
-  ]
+  `]
 })
 export class ThreadCreatorComponent {
   form = new FormGroup({

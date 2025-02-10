@@ -24,9 +24,9 @@ import { PrimeNG } from 'primeng/config';
       fill="var(--surface-ground)"
       animationDuration=".5s">
     </p-progressSpinner>
-    <div [style.display]="(loading.isLoading | async) ? 'none' : 'flex'" class="flex flex-column min-h-screen surface-ground">
+    <div [style.display]="(loading.isLoading | async) ? 'none' : 'flex'" class="flex flex-col min-h-screen surface-ground">
       <app-header class="flex-none"></app-header>
-      <main class="flex-grow-1 container py-8">
+      <main class="flex-grow-1 py-8">
         <router-outlet></router-outlet>
       </main>
       <app-footer class="flex-none"></app-footer>
